@@ -1,0 +1,21 @@
+npm i -D typescript ts-node nodemon @types/node @types/express @types/body-parser @types/mongoose
+npm i express
+npm i express body-parser
+npm i ts-node-dev --save
+npm i mongoose
+npm i @types/mongoose
+
+
+package.json file
+
+"scripts": {
+    "start": "node public/app.js",
+    "dev":"nodemon src/app.ts",
+    "build":"tsc -p ."
+  },
+
+  
+
+
+  //executable commands
+npm run dev
