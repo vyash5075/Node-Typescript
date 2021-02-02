@@ -36,21 +36,21 @@ var StudentController = /** @class */ (function () {
         });
     };
     StudentController.prototype.getStudents = function (req, res) {
-        StudentMongooseModel.find({ req: req }, function (err, data) {
+        StudentMongooseModel.find({}, function (err, data) {
             if (err) {
-                res.send(err);
+                return res.send(err);
             }
-            res.json(data);
+            return res.json(data);
         });
     };
     StudentController.prototype.getStudentById = function (req, res) {
         StudentMongooseModel.findById(req.params.studentId)
             .then(function (student) {
             if (student) {
-                res.send(student);
+                return res.send(student);
             }
             else {
-                res.send({ message: "not found" });
+                return res.send({ message: "not found" });
             }
         })
             .catch(function (err) { return console.log(err); });
@@ -58,9 +58,9 @@ var StudentController = /** @class */ (function () {
     StudentController.prototype.updateStudent = function (req, res) {
         StudentMongooseModel.findOneAndUpdate({ _id: req.params.studentId }, req.body, { new: true }, function (err, data) {
             if (err) {
-                res.send(err);
+                return res.send(err);
             }
-            res.json(data);
+            return res.json(data);
         });
     };
     StudentController.prototype.deleteStudent = function (req, res) {

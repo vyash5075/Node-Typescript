@@ -1,3 +1,4 @@
+// /app/routes/index.ts
 import { Request, Response } from "express";
 import { StudentController } from "../controllers/studentController";
 
@@ -6,7 +7,7 @@ export class Routes {
 
   public routes(app: any): void {
     app.route("/").get((req: Request, res: Response) => {
-      res.status(200).send("Hello Good World!");
+      return res.status(200).send("Hellsdso Good World!");
     });
 
     // Get all students

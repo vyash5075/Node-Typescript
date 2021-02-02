@@ -8,7 +8,7 @@ var Routes = /** @class */ (function () {
     }
     Routes.prototype.routes = function (app) {
         app.route("/").get(function (req, res) {
-            res.status(200).send("Hello Good World!");
+            return res.status(200).send("Hellsdso Good World!");
         });
         // Get all students
         app.route("/api/students").get(this.studentController.getStudents);

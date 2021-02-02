@@ -2,7 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import { Routes } from "./routes";
 import mongoose from "mongoose";
-
+import * as dotenv from "dotenv";
+dotenv.config();
 class App {
   public app: express.Application;
   public routePrv: Routes = new Routes(); //instance of Routes class
@@ -12,6 +13,7 @@ class App {
     this.config();
     this.routePrv.routes(this.app);
     this.mongoSetup();
+    dotenv.config();
   }
 
   private config(): void {
@@ -35,11 +37,10 @@ class App {
   }
 
   private mongoSetup(): void {
+    const DB: any = process.env.DB;
+    console.log("sdsd" + DB);
     mongoose
-      .connect(
-        "mongodb+srv://admin:admin@cluster0.iubmt.mongodb.net/graphqlpractice?retryWrites=true&w=majority",
-        { useNewUrlParser: true, useUnifiedTopology: true }
-      )
+      .connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
       .then(() => console.log("connection successful"))
       .catch((err) => console.error(err));
   }

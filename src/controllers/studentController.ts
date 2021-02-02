@@ -17,11 +17,11 @@ export class StudentController {
   }
 
   public getStudents(req: Request, res: Response) {
-    StudentMongooseModel.find({ req }, (err, data) => {
+    StudentMongooseModel.find({}, (err, data) => {
       if (err) {
-        res.send(err);
+        return res.send(err);
       }
-      res.json(data);
+      return res.json(data);
     });
   }
 
@@ -29,9 +29,9 @@ export class StudentController {
     StudentMongooseModel.findById(req.params.studentId)
       .then((student) => {
         if (student) {
-          res.send(student);
+          return res.send(student);
         } else {
-          res.send({ message: "not found" });
+          return res.send({ message: "not found" });
         }
       })
       .catch((err) => console.log(err));
@@ -44,9 +44,9 @@ export class StudentController {
       { new: true },
       (err, data) => {
         if (err) {
-          res.send(err);
+          return res.send(err);
         }
-        res.json(data);
+        return res.json(data);
       }
     );
   }
