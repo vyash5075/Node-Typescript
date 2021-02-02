@@ -5,8 +5,8 @@
   "main": "public/server.js",
   "scripts": {
     "start": "node public/server.js",
-    "devv": "ts-node-dev --respawn --transpileOnly src/server.ts",
-    "dev": "nodemon src/server.ts",
+    "dev": "ts-node-dev --respawn --transpileOnly src/server.ts",
+    "devvv": "nodemon src/server.ts",
     "build": "tsc -p .",
     "prod": "tsc && node public/server.js"
   },
